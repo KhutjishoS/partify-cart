@@ -1,12 +1,14 @@
 
+// Define the Product interface - the structure each product must follow
 export interface Product {
-  id: string;
-  name: string;
-  description: string;
-  price: number;
-  image: string;
+  id: string;        // Unique identifier for the product
+  name: string;      // Name of the product
+  description: string; // Description of the product
+  price: number;     // Price of the product (in dollars)
+  image: string;     // URL to the product image
 }
 
+// Array of wedding products available in the shop
 export const products: Product[] = [
   {
     id: "1",

@@ -7,13 +7,14 @@ import { Separator } from "@/components/ui/separator";
 import { CartItem as CartItemType } from "@/lib/cart";
 import CartItem from "./CartItem";
 
+// Props for the Cart component
 interface CartProps {
-  isOpen: boolean;
-  onClose: () => void;
-  items: CartItemType[];
-  onUpdateQuantity: (id: string, quantity: number) => void;
-  onRemove: (id: string) => void;
-  total: number;
+  isOpen: boolean;                              // Whether the cart sidebar is open
+  onClose: () => void;                          // Function to call when cart is closed
+  items: CartItemType[];                        // Array of items in the cart
+  onUpdateQuantity: (id: string, quantity: number) => void;  // Function to update item quantity
+  onRemove: (id: string) => void;               // Function to remove an item
+  total: number;                                // Total price of all items
 }
 
 const Cart = ({
@@ -30,10 +31,12 @@ const Cart = ({
         <SheetHeader>
           <SheetTitle>Shopping Cart</SheetTitle>
         </SheetHeader>
+        {/* If cart has items, display them with checkout button */}
         {items.length > 0 ? (
           <>
             <ScrollArea className="flex-1 -mx-6 px-6">
               <div className="divide-y">
+                {/* Map through each cart item and render it */}
                 {items.map((item) => (
                   <CartItem
                     key={item.id}
@@ -44,6 +47,7 @@ const Cart = ({
                 ))}
               </div>
             </ScrollArea>
+            {/* Display total and checkout button */}
             <div className="space-y-4 mt-6">
               <Separator />
               <div className="flex items-center justify-between">
@@ -54,6 +58,7 @@ const Cart = ({
             </div>
           </>
         ) : (
+          // If cart is empty, show empty state message
           <div className="flex flex-col items-center justify-center h-[400px] text-muted-foreground">
             <p>Your cart is empty</p>
           </div>

@@ -3,15 +3,17 @@ import { CartItem as CartItemType } from "@/lib/cart";
 import { Button } from "@/components/ui/button";
 import { Minus, Plus, X } from "lucide-react";
 
+// Props for the CartItem component
 interface CartItemProps {
-  item: CartItemType;
-  onUpdateQuantity: (id: string, quantity: number) => void;
-  onRemove: (id: string) => void;
+  item: CartItemType;                             // The cart item to display
+  onUpdateQuantity: (id: string, quantity: number) => void;  // Function to update quantity
+  onRemove: (id: string) => void;                 // Function to remove the item
 }
 
 const CartItem = ({ item, onUpdateQuantity, onRemove }: CartItemProps) => {
   return (
     <div className="flex items-center gap-4 py-4 animate-fade-in">
+      {/* Item image */}
       <div className="relative aspect-square w-24 overflow-hidden rounded-lg">
         <img
           src={item.image}
@@ -20,11 +22,14 @@ const CartItem = ({ item, onUpdateQuantity, onRemove }: CartItemProps) => {
         />
       </div>
       <div className="flex-1">
+        {/* Item name and price */}
         <h3 className="font-medium">{item.name}</h3>
         <p className="text-sm text-muted-foreground mt-1">
           ${item.price.toFixed(2)}
         </p>
+        {/* Quantity controls */}
         <div className="flex items-center gap-2 mt-2">
+          {/* Decrease quantity button */}
           <Button
             variant="outline"
             size="icon"
@@ -33,7 +38,9 @@ const CartItem = ({ item, onUpdateQuantity, onRemove }: CartItemProps) => {
           >
             <Minus className="h-4 w-4" />
           </Button>
+          {/* Current quantity */}
           <span className="w-8 text-center">{item.quantity}</span>
+          {/* Increase quantity button */}
           <Button
             variant="outline"
             size="icon"
@@ -44,6 +51,7 @@ const CartItem = ({ item, onUpdateQuantity, onRemove }: CartItemProps) => {
           </Button>
         </div>
       </div>
+      {/* Remove item button */}
       <Button
         variant="ghost"
         size="icon"
