@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { useToast } from "@/components/ui/use-toast";
 import { products } from "@/data/products";
+import { Product } from "@/data/products";
 import { CartItem, addToCart, removeFromCart, updateQuantity, calculateTotal } from "@/lib/cart";
 import Header from "@/components/Header";
 import Cart from "@/components/Cart";
@@ -36,8 +37,8 @@ const Index = () => {
       <main className="container mx-auto px-4 pt-24 pb-16">
         <div className="flex flex-col items-center justify-center h-[70vh] space-y-8">
           <div className="text-center space-y-4">
-            <h1 className="text-3xl font-bold tracking-tight">Shopping Cart Demo</h1>
-            <p className="text-muted-foreground">Add products to your cart</p>
+            <h1 className="text-3xl font-bold tracking-tight">Wedding Shop</h1>
+            <p className="text-muted-foreground">Add wedding items to your cart</p>
             <Button 
               className="mt-2"
               onClick={() => setIsCartOpen(true)}
